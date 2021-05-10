@@ -4,7 +4,6 @@ import axios from 'axios'
 export class NewDeck extends Component {
     constructor(props) {
         super(props)
-
         this.state = {
             title: ''
         }
@@ -13,8 +12,12 @@ export class NewDeck extends Component {
         this.setState({ [e.target.name]: e.target.value })
     }
 
+    refreshPage = (e) => {
+        window.location.reload();
+    }
+
     submitHandler = (e) => {
-        e.preventDefault()
+        e.preventDefault();
         console.log(this.state)
         axios.post("http://localhost:5000/decks", this.state)
         .then(response => {
@@ -33,7 +36,7 @@ export class NewDeck extends Component {
                     <div>
                         <input type='text' name='title' value={title} onChange={this.changeHandler} />
                     </div>
-                    <button type='submit'>Submit</button>
+                    <button type='submit'onClick={ this.refreshPage }>Submit</button>
                 </form>
             </div>
         )
