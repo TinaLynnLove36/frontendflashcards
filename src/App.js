@@ -16,17 +16,21 @@ function App() {
   useEffect(() => {
     const fetchDecks = async () => {
       const result = await axios('http://localhost:5000/decks')
-      console.log(result.data)
+     // console.log(result.data)
       setDecks(result.data)
+      console.log(result.data)
+      console.log(result.data.length)
     }
-      fetchDecks()
+     fetchDecks()
   }, [])
 
   return (
     <div className="App">
         <Header />
-         <DeckGrid decks={decks}/>
         <NewDeck />
+         <DeckGrid decks={decks}/>
+         
+  
     
    
       

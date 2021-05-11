@@ -38,6 +38,14 @@ export default function CreateDeckForm(props) {
     ref.current.value = "";
   }, []);
 
+useEffect(() => {
+    const fetchDecks = async () => {
+      const result = await axios('http://localhost:5000/decks')
+      console.log(result.data)
+      setDecks(result.data)
+    }
+      fetchDecks()
+  }, [title])
 
   const handleSubmit = (e) => {
     e.preventDefault();

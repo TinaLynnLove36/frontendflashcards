@@ -1,5 +1,6 @@
-import React, { Component } from 'react'
-import axios from 'axios'
+import React, { Component } from 'react';
+import axios from 'axios';
+
 
 export class NewDeck extends Component {
     constructor(props) {
@@ -22,6 +23,7 @@ export class NewDeck extends Component {
         axios.post("http://localhost:5000/decks", this.state)
         .then(response => {
             console.log(response)
+         
         })
         .catch(error => {
             console.log(error)
@@ -32,18 +34,23 @@ export class NewDeck extends Component {
         const {title} = this.state
         return (
             <div>
+
                 <form onSubmit={this.submitHandler}>
                     <div>
                         <input type='text' name='title' value={title} onChange={this.changeHandler} />
+                        <label>Title</label>
                     </div>
                     <button type='submit'onClick={ this.refreshPage }>Submit</button>
                 </form>
+            
             </div>
         )
     }
 }
 
 export default NewDeck
+
+
 
 
 

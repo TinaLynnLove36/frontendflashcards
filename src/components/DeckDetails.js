@@ -1,28 +1,27 @@
-import React from 'react';
+import axios from 'axios'
+import React, { Component } from 'react'
 
-const DeckDetails = ({ deck }) => {
-
-    const hello = () => {
-        console.log('just a test');
-    }
-return (
-   <button className='cardButtons' onClick={hello}>
-    <div className='card'>
-      <div className='card-inner'>
-        <div className='card-front'>
-          <h1>{deck.title}</h1>
+class DeckDetails extends React.Component {
+  render() {
+    return (
+      <button
+        className="cardButtons"
+        onClick={this.props.onClickHandler}
+        data-id={this.props.id}>
+        <div className="card" data-id={this.props.id}>
+          <div className="card-inner">
+            <div className="card-front">
+              <h1 data-id={this.props.id}>{this.props.title}</h1>
+                <h1 data-id={this.props.id}>{this.props.index}</h1>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
-    </button>
-  
-  )
+      </button>
+    )
+  }
 }
 
 
-// will make line 10 a button that when clicked will open up and create single card. 
 
+export default DeckDetails
 
-
-
-export default DeckDetails;
