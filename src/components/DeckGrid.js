@@ -68,10 +68,10 @@ class DeckGrid extends React.Component {
     let addNewCard = null
     if (this.state.deckId != null) {
       backButtonView = <button onClick={this.backButtonOnClick}>Back</button>
-       addNewCard = <button onClick={this.backButtonOnClick}>Add New Card</button>
-            
+       addNewCard = <NewCard onChange={this.state.deckId}><button>Add New Card</button></NewCard>        
     }
-
+    let testing = null
+    testing = ( <NewCard />)
 
     return (
       <div>
@@ -83,3 +83,7 @@ class DeckGrid extends React.Component {
   }
 }
 export default DeckGrid
+
+//<button onClick={this.backButtonOnClick}>Add New Card</button> 
+
+    
